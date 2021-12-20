@@ -3,8 +3,6 @@ FROM debian:buster-slim
 ADD deb/ /deb
 
 RUN apt-get update && apt-get install -y ca-certificates \
-	&& sed -i "s/http:\/\/deb.debian.org/https:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list \
-	&& sed -i "s/http:\/\/security.debian.org/https:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list \
 	&& rm -rf /var/lib/apt/lists/*
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
